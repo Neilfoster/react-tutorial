@@ -4,17 +4,23 @@ import ReactDom from 'react-dom';
 import './style.css';
 
 //setup vars
-const title = 'The Very Hungry Caterpillar';
-const author = 'Eric Carle';
-const img = "https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg";
+const firstBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
+  title: 'The Very Hungry Caterpillar',
+  author: 'Eric Carle'
+}
+
+const secondBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/61zcFAIwgRL._AC_UL200_SR200,200_.jpg',
+  title: 'Ambitious Girl',
+  author: 'Meena Harris',
+}
 
 function Booklist() {
   return (
     <section className='booklist'>
-      <Book job="developer" />
-      <Book title='random title' number={22} />
-      <Book />
-      <Book />
+      <Book img={firstBook.img} title={firstBook.title} author={firstBook.author} />
+      <Book img={secondBook.img} title={secondBook.title} author={secondBook.author} />
     </section>
   );
 }
@@ -23,12 +29,9 @@ function Booklist() {
 const Book = (props) => {
   console.log(props)
   return <article className='book'>
-    <img src={img} alt='' />
-    <h1>{title}</h1>
-    <h4>{author}</h4>
-    <p>{props.job}</p>
-    <p>{props.title}</p>
-    <p>{props.number}</p>
+    <img src={props.img} alt='' />
+    <h1>{props.title}</h1>
+    <h4>{props.author}</h4>
   </article>;
 };
 
