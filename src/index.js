@@ -16,6 +16,12 @@ const books = [
     title: 'Ambitious Girl',
     author: 'Meena Harris',
   },
+
+  {
+    img: 'https://images-na.ssl-images-amazon.com/images/I/91wRcPETM0L._AC_UL200_SR200,200_.jpg',
+    title: 'Change Sings: A Childrens Anthem',
+    author: 'Amanda Gorman',
+  },
 ];
 
 const names = ['john', 'peter', 'shaun']
@@ -26,13 +32,21 @@ console.log(newNames);
 
 function Booklist() {
   return (
-    <section className='booklist'>{newNames}</section>
+    <section className='booklist'>
+      {books.map((book) => {
+        const { img, title, author } = book;
+        return (
+          <Book book={book}>
+          </Book>
+        );
+      })}</section>
   );
 }
 
 
-const Book = ({ img, title, author }) => {
-  //const { img, title, author } = props
+const Book = (props) => {
+  console.log(props);
+  const { img, title, author } = props.book;
   return (
     <article className='book'>
       <img src={img} alt='' />
