@@ -4,24 +4,29 @@ import ReactDom from 'react-dom';
 import './style.css';
 
 //setup vars
-const firstBook = {
-  img: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
-  title: 'The Very Hungry Caterpillar',
-  author: 'Eric Carle'
-}
+const books = [
+  {
+    img: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
+    title: 'The Very Hungry Caterpillar',
+    author: 'Eric Carle'
+  },
 
-const secondBook = {
-  img: 'https://images-na.ssl-images-amazon.com/images/I/61zcFAIwgRL._AC_UL200_SR200,200_.jpg',
-  title: 'Ambitious Girl',
-  author: 'Meena Harris',
-}
+  {
+    img: 'https://images-na.ssl-images-amazon.com/images/I/61zcFAIwgRL._AC_UL200_SR200,200_.jpg',
+    title: 'Ambitious Girl',
+    author: 'Meena Harris',
+  },
+];
+
+const names = ['john', 'peter', 'shaun']
+const newNames = names.map((name) => {
+  return <h1>{name}</h1>;
+});
+console.log(newNames);
 
 function Booklist() {
   return (
-    <section className='booklist'>
-      <Book img={firstBook.img} title={firstBook.title} author={firstBook.author} />
-      <Book img={secondBook.img} title={secondBook.title} author={secondBook.author} />
-    </section>
+    <section className='booklist'>{newNames}</section>
   );
 }
 
