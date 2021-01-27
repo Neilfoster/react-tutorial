@@ -6,18 +6,21 @@ import './style.css';
 //setup vars
 const books = [
   {
+    id: 1,
     img: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
     title: 'The Very Hungry Caterpillar',
     author: 'Eric Carle'
   },
 
   {
+    id: 2,
     img: 'https://images-na.ssl-images-amazon.com/images/I/61zcFAIwgRL._AC_UL200_SR200,200_.jpg',
     title: 'Ambitious Girl',
     author: 'Meena Harris',
   },
 
   {
+    id: 3,
     img: 'https://images-na.ssl-images-amazon.com/images/I/91wRcPETM0L._AC_UL200_SR200,200_.jpg',
     title: 'Change Sings: A Childrens Anthem',
     author: 'Amanda Gorman',
@@ -34,9 +37,8 @@ function Booklist() {
   return (
     <section className='booklist'>
       {books.map((book) => {
-        const { img, title, author } = book;
         return (
-          <Book book={book}>
+          <Book key={book.id} book={book}>
           </Book>
         );
       })}</section>
@@ -45,7 +47,6 @@ function Booklist() {
 
 
 const Book = (props) => {
-  console.log(props);
   const { img, title, author } = props.book;
   return (
     <article className='book'>
