@@ -38,7 +38,7 @@ function Booklist() {
     <section className='booklist'>
       {books.map((book) => {
         return (
-          <Book key={book.id} book={book}>
+          <Book key={book.id} {...book}>
           </Book>
         );
       })}</section>
@@ -46,13 +46,18 @@ function Booklist() {
 }
 
 
-const Book = (props) => {
-  const { img, title, author } = props.book;
+const Book = ({ img, title, author }) => {
+  //attribute, eventHandler 
+  // onClick, onMouseOver
+  const clickHandler = () => {
+    alert('Stop Clicking please');
+  }
   return (
     <article className='book'>
       <img src={img} alt='' />
       <h1>{title}</h1>
       <h4>{author}</h4>
+      <button type="button" onClick={clickHandler}>reference example</button>
     </article>
   );
 };
